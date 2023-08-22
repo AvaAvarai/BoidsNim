@@ -3,10 +3,10 @@ import opengl/glut, opengl, opengl/glu, math, random
 const
     BOID_COUNT = 500
     VIEW_RADIUS = 20.0
-    MAX_SPEED = 2.0
-    MAX_FORCE = 0.05
-    WINDOW_WIDTH = 900.0
-    WINDOW_HEIGHT = 600.0
+    MAX_SPEED = 5.0
+    MAX_FORCE = 0.5
+    WINDOW_WIDTH = 500.0
+    WINDOW_HEIGHT = 500.0
     ALIGNMENT_WEIGHT = 1.2
     COHESION_WEIGHT = 1.0
     SEPARATION_WEIGHT = 1.5
@@ -164,9 +164,13 @@ proc reshape(width: GLsizei, height: GLsizei) {.cdecl.} =
 
   # Set the viewport to cover the new window
   glViewport(0, 0, width, height)
-  glMatrixMode(GL_PROJECTION)
+  glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
-  gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT) 
+  gluOrtho2D(0.0, WINDOW_WIDTH, 0.0, WINDOW_HEIGHT)
+  glDisable(GL_DEPTH_TEST)
+  glDisable(GL_CULL_FACE)
+  glDisable(GL_LIGHTING)
+  glDisable(GL_BLEND)
 
 var argc: cint = 0
 glutInit(addr argc, nil)
@@ -180,11 +184,8 @@ glutReshapeFunc(reshape)
 
 loadExtensions()
 
-glClearColor(0.0, 0.0, 0.0, 1.0)                   # Set background color to black and opaque
-glClearDepth(1.0)                                 # Set background depth to farthest
-#glEnable(GL_DEPTH_TEST)                           # Enable depth testing for z-culling
-glDepthFunc(GL_LEQUAL)                            # Set the type of depth-test
-glShadeModel(GL_SMOOTH)                           # Enable smooth shading
-glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST) # Nice perspective corrections
+glClearColor(0.0, 0.0, 0.0, 1.0)
+glShadeModel(GL_SMOOTH)
+glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
 glutMainLoop()
