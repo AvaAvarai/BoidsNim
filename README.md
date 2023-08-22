@@ -2,7 +2,7 @@
 
 A simple boids flocking simulation implemented using Nim, OpenGL, and GLUT.
 
-![Example Program Behavior](ex1.png)
+![Example flocking](BoidsGif.gif)
 
 ## Features
 
