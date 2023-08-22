@@ -1,6 +1,6 @@
 # Boids Simulation in Nim
 
-A simple boids flocking simulation implemented using Nim, OpenGL, and GLUT.
+Boids flocking simulation in 2D using Nim, OpenGL, and FreeGlut.
 
 ![Example flocking](BoidsGif.gif)
 
@@ -36,20 +36,17 @@ nim c -r boids.nim
 Watch the boids flock and interact in real-time.
 Adjust parameters like the number of boids, maximum speed, view radius, etc., in the source code to see how it affects the simulation.
 
-## Dependencies and Required Libraries on Windows
+## Pre-compiled Releases for Windows Users
 
-To run the boids simulation on Windows, you'll primarily need the FreeGLUT library:
+For Windows users, pre-compiled releases are available for download, including the executable .exe file and the required .dll files for OpenGL and FreeGLUT.
 
-### FreeGLUT (The Free OpenGL Utility Toolkit)
+To get started:
 
-FreeGLUT is an open-source alternative to the original GLUT library. It provides a portable API for handling window creation, input events, and other tasks useful for OpenGL-based applications.
+1. Download the latest release zip from the Releases section.
+2. Extract the zip file into a folder.
+3. Run the .exe to start the simulation.
 
-**Required DLL**: `freeglut.dll` (64-bit) or `freeglut32.dll` (32-bit).
-
-### Installation Instructions
-
-1. Ensure you have FreeGLUT installed on your system.
-2. Place the `freeglut.dll` file (if not already present) in the same directory as your executable or in a directory listed in your system's `PATH` environment variable.
+**Note**: Ensure that the .dll files are in the same directory as your .exe or in a directory listed in your system's PATH environment variable.
 
 ## License
 
